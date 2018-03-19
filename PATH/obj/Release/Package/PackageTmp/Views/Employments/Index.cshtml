@@ -1,0 +1,171 @@
+﻿@using ProvalusApplicantTrackingHub.Models;
+@model ProvalusApplicantTrackingHub.Models.EmploymentViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.Partial("_StepBar")
+    }
+
+</div>
+
+
+<h2>Employment History</h2>
+<h3>Please enter your employment history for the past 10 years.</h3>
+
+<div>
+    <table class="ui sortable striped celled table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => Model.NewEmp.Employer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.NewEmp.JobTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.NewEmp.EmployerPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.NewEmp.StartPay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.NewEmp.EndPay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.NewEmp.PayRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.NewEmp.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.NewEmp.Current)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.NewEmp.EndDate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Employments)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployerPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartPay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndPay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PayRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Current)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id, jaid = item.JobApp.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id, jaid = item.JobApp.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id, jaid = item.JobApp.Id })
+                </td>
+            </tr>
+        }
+        @using (Html.BeginForm("Create", "Employments", FormMethod.Post, new { employmentVM = Model }))
+        {
+            <tr>
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <td>
+                    @Html.EditorFor(model => Model.NewEmp.Employer, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => Model.NewEmp.Employer, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => Model.NewEmp.JobTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => Model.NewEmp.JobTitle, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => Model.NewEmp.EmployerPhone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => Model.NewEmp.EmployerPhone, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => Model.NewEmp.StartPay, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => Model.NewEmp.StartPay, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => Model.NewEmp.EndPay, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => Model.NewEmp.EndPay, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EnumDropDownListFor(m => m.NewEmp.PayRate, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => Model.NewEmp.PayRate, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => Model.NewEmp.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => Model.NewEmp.StartDate, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => Model.NewEmp.Current)
+                    @Html.ValidationMessageFor(model => Model.NewEmp.Current, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => Model.NewEmp.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => Model.NewEmp.EndDate, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.HiddenFor(m => m.JAID)
+
+                    @*<input type="hidden" name="@Model.JAID" value="@ViewBag.JAID" id="@Model.JAID" />*@
+                    <button type="submit" value="" class="ui small icon button">ADD</button>
+                </td>
+            </tr>
+
+        }
+
+    </table>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <p><a href="@Url.Action("Index", "Educations", new { jaid = TempData["jaid"] })" class="btn btn-danger btn-group-sm" style="float:right">Next Section &raquo;</a></p>
+     </div>
+    </div>
+        
+        <script>
+            $(document).ready(function () {
+                $('#address').click(function () {
+                    var $box = $('.emp-address');
+                    if ($box.is(':visible')) {
+                        $box.fadeOut('slow');
+                    } else {
+                        $box.fadeIn('slow');
+                    }
+                });
+            });
+    //$(document).ready(function() {
+    //    $('#address').click(function() {
+    //        $('.emp-address').slideToggle('slow');
+    //    });
+    //});
+        </script>

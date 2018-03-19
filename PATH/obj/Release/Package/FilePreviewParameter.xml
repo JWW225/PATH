@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="danielguelzo-001-site12" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\William\ West\\Desktop\\PATH\ QA\\PATH\\PATH\\PATH\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\William\ West\\Desktop\\PATH\ QA\\PATH\\PATH\\PATH\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="ProvalusApplicantTrackingHub.Models.ApplicationDbContext-Web.config Connection String" description="" value="" tags="" />
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="'Data Source=SQL7004.site4now.net;Initial Catalog=DB_A33255_PATH;User Id=DB_A33255_PATH_admin;Password=Libero!5;'" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\William\ West\\Desktop\\PATH\ QA\\PATH\\PATH\\PATH\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

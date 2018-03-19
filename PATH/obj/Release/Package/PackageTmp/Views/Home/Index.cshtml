@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "PATH";
+}
+@*Added Call to addToHomeScreen Function in order to populate a drop down that asks you to save the link to your home screen.
+  Works with custom made icons to give a "App" style feel to the home screen link.*@
+<head>
+    <title>Add To Home</title>
+    <link rel="stylesheet" type="text/css" href="content/addtohomescreen.css">
+    <script src="content/addtohomescreen.js"></script>
+    <script>
+        addToHomescreen();
+    </script>
+</head>
+
+
+
+
+<div class="jumbotron" style="text-align:center">
+    <h1>Welcome to Provalus!</h1>
+    <p class="lead">Please Click the button below to start your Journey with Provalus!</p>
+    <p><a href="@Url.Action("UploadResume", "JobApps")" class="btn btn-danger btn-lg">Start Application &raquo;</a></p>
+</div>
+

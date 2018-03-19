@@ -1,0 +1,310 @@
+﻿@model ProvalusApplicantTrackingHub.Models.JobApp
+
+@{
+    ViewBag.Title = "Create";
+    
+}
+<div>
+
+    @if (User.Identity.IsAuthenticated) {
+        @Html.Partial("_StepBar")
+       
+    }
+
+</div>
+
+<h2>Applicant Information</h2>
+
+
+@using (Html.BeginForm("Create","JobApps"))
+{
+    @Html.AntiForgeryToken()
+    @*@(ViewContext.ClientValidationEnabled = true)*@
+
+    <div class="form-horizontal">
+        <h4>Please complete all required fields and answer all questions to the best of your ability.</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.Position, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PrimaryPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrimaryPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrimaryPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PPhoneIsMobile, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.PPhoneIsMobile)
+                    @Html.ValidationMessageFor(model => model.PPhoneIsMobile, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SecondaryPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SecondaryPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SecondaryPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SPhoneIsMobile, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.SPhoneIsMobile)
+                    @Html.ValidationMessageFor(model => model.SPhoneIsMobile, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CanRelocate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div>
+                    <fieldset>
+                        <div class="radio">
+                            @Html.RadioButtonFor(model => model.CanRelocate, true, new { id = "CanRelocate-true" })
+                            @Html.Label("CanRelocate-true", "Yes")
+                        </div>
+                        <div class="radio">
+                            @Html.RadioButtonFor(model => model.CanRelocate, false, new { id = "CanRelocate-false" })
+                            @Html.Label("CanRelocate-false", "No")
+                        </div>
+                    </fieldset>
+                    @Html.ValidationMessageFor(model => model.CanRelocate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateAvailable, new { htmlAttributes = new { @class = "form-control" } })
+                @*<input id="datetime" value="@Model.DateAvailable" type="datetime-local" class="form-control" />*@
+                @Html.ValidationMessageFor(model => model.DateAvailable, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AuthorizedToWork, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div>
+                    <fieldset>
+                        <div class="radio">
+                            @Html.RadioButtonFor(model => model.AuthorizedToWork, true, new { id = "authorized-to-work-true" })
+                            @Html.Label("authorized-to-work-true", "Yes")
+                        </div>
+                        <div class="radio">
+                            @Html.RadioButtonFor(model => model.AuthorizedToWork, false, new { id = "authorized-to-work-false" })
+                            @Html.Label("authorized-to-work-false", "No")
+                        </div>
+                    </fieldset>
+                    @Html.ValidationMessageFor(model => model.AuthorizedToWork, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DrugScreen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div>
+                    <fieldset>
+                        <div class="radio">
+                            @Html.RadioButtonFor(model => model.DrugScreen, true, new { id = "drugScreen-true" })
+                            @Html.Label("drugScreen-true", "Yes")
+                        </div>
+                        <div class="radio">
+                            @Html.RadioButtonFor(model => model.DrugScreen, false, new { id = "drugScreen-false" })
+                            @Html.Label("drugScreen-false", "No")
+                        </div>
+                    </fieldset>
+                    @Html.ValidationMessageFor(model => model.DrugScreen, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Military, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div>
+                    <fieldset id="MilRadio">
+                        <div class="radio">
+                            @Html.RadioButtonFor(model => model.Military, true, new { id = "Military-true" })
+                            @Html.Label("Military-true", "Yes")
+                        </div>
+                        <div class="radio">
+                            @Html.RadioButtonFor(model => model.Military, false, new { id = "Military-false" })
+                            @Html.Label("Military-false", "No")
+                        </div>
+                    </fieldset>
+                    @Html.ValidationMessageFor(model => model.Military, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div id="MilBranchSelector" class="form-group" style="display:none;">
+            @Html.LabelFor(model => model.MilBranch, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.MilBranch, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MilBranch, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Conviction, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div id="ConRadio">
+                    <fieldset>
+                        <div class="radio">
+                            @Html.RadioButtonFor(model => model.Conviction, true, new { id = "Conviction-true" })
+                            @Html.Label("Conviction-true", "Yes")
+                        </div>
+                        <div class="radio">
+                            @Html.RadioButtonFor(model => model.Conviction, false, new { id = "Conviction-false" })
+                            @Html.Label("Conviction-false", "No")
+                        </div>
+                    </fieldset>
+                    @Html.ValidationMessageFor(model => model.Conviction, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div id="ConvicionExplanation" class="form-group" style="display:none;">
+            @Html.LabelFor(model => model.Explanation, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Explanation)
+                @Html.ValidationMessageFor(model => model.Explanation, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.About, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.About, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.About, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <input type="hidden" name="Applicant" value="@Model.Applicant" id="Applicant" />
+        <input type="hidden" name="DateEntered" value="@DateTime.Now" id="DateEntered" />
+        <input type="hidden" name="LastEdit" value="@DateTime.Now" id="LastEdit" />
+        <input type="hidden" name="Resume" value="@Model.Resume" id="Resume" />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" value="" class="btn btn-danger btn-group-sm" style="float:right">Next Section</button>
+            </div>
+        </div>
+    </div>
+
+
+    @*<div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <p><a href="@Url.Action("Index", "Employments", new { jaid = TempData["jaid"] })" class="btn btn-danger btn-group-sm" style="float:right">Next Section &raquo;</a></p>
+        </div>
+    </div>*@
+ @*</div>*@
+}
+<script type="text/javascript">
+        alert("Please complete each section before moving on. \n Once you click Next Section you can not go back.");
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#MilBranchSelector').hide();
+        $('#ConvicionExplanation').hide();
+    });
+
+    $("#MilRadio").on("click", function () {
+        MilCheck();
+    });
+
+    $("#ConRadio").on("click", function () {
+        ConCheck();
+    });
+
+    function MilCheck() {
+        if ($('#Military-true').prop('checked')) {
+            $('#MilBranchSelector').show();
+        } else {
+            $('#MilBranchSelector').hide();
+        }
+    }
+
+    function ConCheck() {
+
+        if ($('#Conviction-true').prop('checked')) {
+            $('#ConvicionExplanation').show();
+        } else {
+            $('#ConvicionExplanation').hide();
+        }
+    }
+
+
+
+    //$("#SSNbtn").on("click", function () {
+    //    SSNSwap();
+    //});
+
+    //function SSNSwap() {
+    //    if ($('#Military-true').prop('checked')) {
+    //        $('#MilBranchSelector').show();
+    //    } else {
+    //        $('#MilBranchSelector').hide();
+    //    }
+    //}
+
+    //$('.value').on('keydown keyup mousedown mouseup', function () {
+    //    var res = this.value, //grabs the value
+    //        len = res.length, //grabs the length
+    //        max = 9, //sets a max chars
+    //        stars = len > 0 ? len > 1 ? len > 2 ? len > 3 ? len > 4 ? 'XXX-XX-' : 'XXX-X' : 'XXX-' : 'XX' : 'X' : '', //this provides the masking and formatting
+    //        result = stars + res.substring(5); //this is the result
+    //    $(this).attr('maxlength', max); //setting the max length
+    //    $(".number").val(result); //spits the value into the input
+    //});
+</script>

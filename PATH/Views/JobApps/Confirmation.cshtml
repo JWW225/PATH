@@ -1,0 +1,19 @@
+﻿@model ProvalusApplicantTrackingHub.Models.JobApp
+
+<div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        @*Html.Partial("_StepBar")*@
+    }
+</div>
+
+    <h1>Submission Confirmation</h1>
+
+
+    <h2>Thank you for submitting your resume.</h2>
+    <h2>Please click below to confirm submission and to log out!</h2>
+
+    <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger btn-group-sm" style="float:left">Submit & Log Out</a>
+
+
+

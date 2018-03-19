@@ -1,0 +1,85 @@
+﻿@model ProvalusApplicantTrackingHub.Models.SkillViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.Partial("_StepBar")
+    }
+
+</div>
+
+<h2>Technological Proficiency</h2>
+
+<p>
+    @Html.ActionLink("Create New Skill", "Create")
+</p>
+<table class="ui striped centered celled table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NewSkill.Technology)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewSkill.Proficiency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewSkill.Explanation)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Skills)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Technology.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proficiency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Explanation)
+            </td>
+
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+            </td>
+        </tr>
+    }
+
+    @using (Html.BeginForm("Create", "Skills", new { skill = Model.NewSkill }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <tr>
+            <td>
+                @Html.DropDownListFor(model => Model.SelectedTech, new SelectList(Model.TechDropList,"Id","Name"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => Model.NewSkill.Technology, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.EnumDropDownListFor(model => Model.NewSkill.Proficiency, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => Model.NewSkill.Proficiency, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.EditorFor(model => Model.NewSkill.Explanation, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => Model.NewSkill.Explanation, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="hidden" name="JAID" value="@Model.JAID" id="JAID" />
+
+                <button type="submit" value="Create" class="ui small icon button"> <i class="large add icon"></i></button>
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p><a href="@Url.Action("Index", "References", new { jaid = TempData["jaid"] })" class="btn btn-danger btn-group-sm" style="float:right">Next Section &raquo;</a></p>
+

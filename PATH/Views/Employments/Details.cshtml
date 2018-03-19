@@ -1,0 +1,92 @@
+﻿@model ProvalusApplicantTrackingHub.Models.Employment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Current)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Current)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployerPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployerPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartPay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndPay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+    </dl>
+    <input type="hidden" name="jaid" id="jaid" value="@Model.JobApp.Id" />
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id, jaid = Model.JobApp.Id }) |
+    @Html.ActionLink("Back to List", "Index", new { jaid = Model.JobApp.Id })
+</p>

@@ -1,0 +1,243 @@
+﻿@model ProvalusApplicantTrackingHub.Models.JobApp
+
+@{
+    ViewBag.Title = "SignatureView";
+}
+<div>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.Partial("_StepBar")
+    }
+
+</div>
+
+<h2>Information Verification</h2>
+
+<div>
+    <h4>Please verify your information and complete your signature capture before submission.</h4>
+    <hr />
+    <div class="col-lg-12">
+        <div class="col-md-6" style="height:100%">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Position)
+
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Position)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.FName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LName)
+                </dd>
+
+                @*<dt>
+                        @Html.DisplayNameFor(model => model.SSN)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SSN)
+                    </dd>*@
+
+                @*<dt>
+                        @Html.DisplayNameFor(model => model.DOB)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DOB)
+                    </dd>*@
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PrimaryPhone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PrimaryPhone)
+                    @if (Model.PPhoneIsMobile)
+                    {<span> (Mobile)</span>}
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SecondaryPhone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SecondaryPhone)
+                    @if (Model.SPhoneIsMobile)
+                    {<span> (Mobile)</span>}
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CanRelocate)
+                </dt>
+
+                <dd>
+                    @if (Model.CanRelocate)
+                    {<div>Yes</div> }
+                    else
+                    { <div>No</div>}
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateAvailable)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DateAvailable)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AuthorizedToWork)
+                </dt>
+
+                <dd>
+                    @if (Model.AuthorizedToWork)
+                    {<div>Yes</div> }
+                    else
+                    { <div>No</div>}
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DrugScreen)
+                </dt>
+
+                <dd>
+                    @if (Model.DrugScreen)
+                    {<div>Yes</div> }
+                    else
+                    { <div>No</div>}
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Military)
+                </dt>
+
+                <dd>
+                    @if (Model.Military)
+                    {<div>Yes</div> }
+                    else
+                    { <div>No</div>}
+                </dd>
+
+                @if (Model.Military)
+                {
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MilBranch)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.MilBranch)
+                    </dd>
+                }
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Conviction)
+                </dt>
+
+                <dd>
+                    @if (Model.Conviction)
+                    {<div>Yes</div> }
+                    else
+                    { <div>No</div>}
+                </dd>
+                @if (Model.Conviction)
+                {
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Explanation)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Explanation)
+                    </dd>
+                }
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.About)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.About)
+                </dd>
+
+                @*<dt>
+                        @Html.DisplayNameFor(model => model.Resume)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Resume)
+                    </dd>*@
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Source)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Source)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Branch)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Branch)
+                </dd>
+ 
+
+            </dl>
+
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.Signature, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Signature, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Signature, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+</div>
+<div>
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")*@
+    </p>
+</div>
+<br />
+
+@*<a href="javascript:document.getElementById('logoutForm').submit()">Submit & LogOut</a>*@
+<a href="@Url.Action("Confirmation")" class="btn btn-danger btn-group-sm" style="float:left">Submit</a>
+
+
+
+@section Scripts {
+    <script src="~/Scripts/signature_pad.min.js"></script>
+    <script src="~/Scripts/SignaturePadInit.js"></script>
+}

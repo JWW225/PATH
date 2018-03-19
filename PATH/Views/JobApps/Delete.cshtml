@@ -1,0 +1,224 @@
+﻿@model ProvalusApplicantTrackingHub.Models.JobApp
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Submitted Job Applications</h3>
+<div>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MName)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.SSN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PPhoneIsMobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PPhoneIsMobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondaryPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondaryPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SPhoneIsMobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SPhoneIsMobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CanRelocate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CanRelocate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAvailable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateEntered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateEntered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorizedToWork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorizedToWork)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DrugScreen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrugScreen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Military)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Military)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Branch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Branch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conviction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conviction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Explanation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Explanation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Signature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Signature)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.About)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.About)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPABScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPABScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTScore)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+            @*@Html.ActionLink("Confirm Delete", "DeleteConfirmed", "JobApps")*@
+            @*Above code would throw and error when you clicked on the link.*@
+        </div>
+    }
+</div>

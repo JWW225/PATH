@@ -1,0 +1,1614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3E099FDF-00E6-43FB-A3B3-39D3468700D8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProvalusApplicantTrackingHub</RootNamespace>
+    <AssemblyName>ProvalusApplicantTrackingHub</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>&lt;Objects&gt;&lt;ObjectGroup Name="DefaultConnection-Deployment" Order="1"&gt;&lt;Destination Path="Data Source=SQL7004.site4now.net%3bInitial Catalog=DB_A33255_PATH%3bUser Id=DB_A33255_PATH_admin%3bPassword=Libero!5%27%3b" /&gt;&lt;Object Type="DbFullSql" Enabled="False"&gt;&lt;PreSource Path="Data Source=%28LocalDB%29\MSSQLLocalDB%3bAttachDbFilename=&amp;quot%3bC:\Users\William West\Documents\PATHDB.mdf&amp;quot%3b%3bIntegrated Security=True%3bConnect Timeout=30" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" /&gt;&lt;Source Path="obj\Debug\AutoScripts\DefaultConnection-Deployment_SchemaAndData.sql" Transacted="True" /&gt;&lt;/Object&gt;&lt;/ObjectGroup&gt;&lt;/Objects&gt;</PublishDatabaseSettings>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabases>true</PublishDatabases>
+    <PublishDatabaseSettings>&lt;Objects xmlns="http://schemas.microsoft.com/developer/msbuild/2003"&gt;&lt;ObjectGroup Name="DefaultConnection-Deployment" Order="1"&gt;&lt;Destination Path="Data Source=SQL7004.site4now.net%3bInitial Catalog=DB_A33255_wwestPath%3bUser Id=DB_A33255_wwestPath_admin%3bPassword=Libero!5%3b" /&gt;&lt;Object Type="DbFullSql" Enabled="False"&gt;&lt;PreSource Path="Data Source=%28LocalDB%29\MSSQLLocalDB%3bAttachDbFilename=&amp;quot%3bC:\Users\William West\Documents\PATHDB.mdf&amp;quot%3b%3bIntegrated Security=True%3bConnect Timeout=30" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" /&gt;&lt;Source Path="obj\Release\AutoScripts\DefaultConnection-Deployment_SchemaOnly.sql" Transacted="True" /&gt;&lt;/Object&gt;&lt;/ObjectGroup&gt;&lt;/Objects&gt;</PublishDatabaseSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dropbox.Api, Version=4.0.0.0, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dropbox.Api.4.7.0\lib\net45\Dropbox.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EducationsController.cs" />
+    <Compile Include="Controllers\EmploymentsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobAppsController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReferencesController.cs" />
+    <Compile Include="Controllers\SkillsController.cs" />
+    <Compile Include="Controllers\TechnologiesController.cs" />
+    <Compile Include="Controllers\UserMgmtController.cs" />
+    <!--<Compile Include="fonts\Controllers\AccountController.cs" />
+    <Compile Include="fonts\Controllers\EducationsController.cs" />
+    <Compile Include="fonts\Controllers\EmploymentsController.cs" />
+    <Compile Include="fonts\Controllers\HomeController.cs" />
+    <Compile Include="fonts\Controllers\JobAppsController.cs" />
+    <Compile Include="fonts\Controllers\ManageController.cs" />
+    <Compile Include="fonts\Controllers\ReferencesController.cs" />
+    <Compile Include="fonts\Controllers\SkillsController.cs" />
+    <Compile Include="fonts\Controllers\TechnologiesController.cs" />
+    <Compile Include="fonts\Controllers\UserMgmtController.cs" />-->
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803131922207_new.cs" />
+    <Compile Include="Migrations\201803131922207_new.Designer.cs">
+      <DependentUpon>201803131922207_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803132024364_Images.cs" />
+    <Compile Include="Migrations\201803132024364_Images.Designer.cs">
+      <DependentUpon>201803132024364_Images.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Education.cs" />
+    <Compile Include="Models\EducationViewModel.cs" />
+    <Compile Include="Models\Employment.cs" />
+    <Compile Include="Models\EmploymentViewModel.cs" />
+    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\JobApp.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Reference.cs" />
+    <Compile Include="Models\Skill.cs" />
+    <Compile Include="Models\SkillViewModel.cs" />
+    <Compile Include="Models\Technology.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IPathRepository.cs" />
+    <Compile Include="Repository\PathRepository.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utils\ExtensionMethods.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\addtohomescreen.css" />
+    <Content Include="Content\addtohomescreen.js" />
+    <Content Include="Content\bootstrap-editable\css\bootstrap-editable.css" />
+    <Content Include="Content\bootstrap-editable\img\clear.png" />
+    <Content Include="Content\bootstrap-editable\img\loading.gif" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap3-editable\css\bootstrap-editable.css" />
+    <Content Include="Content\bootstrap3-editable\img\clear.png" />
+    <Content Include="Content\bootstrap3-editable\img\loading.gif" />
+    <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
+    <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\autoFill.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.dataTables.css" />
+    <Content Include="Content\DataTables\css\autoFill.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.foundation.css" />
+    <Content Include="Content\DataTables\css\autoFill.foundation.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.jqueryui.css" />
+    <Content Include="Content\DataTables\css\autoFill.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.semanticui.css" />
+    <Content Include="Content\DataTables\css\autoFill.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\buttons.dataTables.css" />
+    <Content Include="Content\DataTables\css\buttons.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\buttons.foundation.css" />
+    <Content Include="Content\DataTables\css\buttons.foundation.min.css" />
+    <Content Include="Content\DataTables\css\buttons.jqueryui.css" />
+    <Content Include="Content\DataTables\css\buttons.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\buttons.semanticui.css" />
+    <Content Include="Content\DataTables\css\buttons.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.bootstrap.css" />
+    <Content Include="Content\DataTables\css\colReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\colReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.dataTables.css" />
+    <Content Include="Content\DataTables\css\colReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.foundation.css" />
+    <Content Include="Content\DataTables\css\colReorder.foundation.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.jqueryui.css" />
+    <Content Include="Content\DataTables\css\colReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.semanticui.css" />
+    <Content Include="Content\DataTables\css\colReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTables\css\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.material.css" />
+    <Content Include="Content\DataTables\css\dataTables.material.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.semanticui.css" />
+    <Content Include="Content\DataTables\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.uikit.css" />
+    <Content Include="Content\DataTables\css\dataTables.uikit.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.bootstrap.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.dataTables.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.foundation.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.foundation.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.jqueryui.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.semanticui.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.bootstrap.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.dataTables.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.foundation.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.foundation.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.jqueryui.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.semanticui.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTables\css\keyTable.bootstrap.css" />
+    <Content Include="Content\DataTables\css\keyTable.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\keyTable.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.dataTables.css" />
+    <Content Include="Content\DataTables\css\keyTable.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.foundation.css" />
+    <Content Include="Content\DataTables\css\keyTable.foundation.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.jqueryui.css" />
+    <Content Include="Content\DataTables\css\keyTable.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.semanticui.css" />
+    <Content Include="Content\DataTables\css\keyTable.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\responsive.bootstrap.css" />
+    <Content Include="Content\DataTables\css\responsive.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\responsive.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\responsive.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\responsive.dataTables.css" />
+    <Content Include="Content\DataTables\css\responsive.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\responsive.foundation.css" />
+    <Content Include="Content\DataTables\css\responsive.foundation.min.css" />
+    <Content Include="Content\DataTables\css\responsive.jqueryui.css" />
+    <Content Include="Content\DataTables\css\responsive.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\responsive.semanticui.css" />
+    <Content Include="Content\DataTables\css\responsive.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.dataTables.css" />
+    <Content Include="Content\DataTables\css\rowGroup.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.foundation.css" />
+    <Content Include="Content\DataTables\css\rowGroup.foundation.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.jqueryui.css" />
+    <Content Include="Content\DataTables\css\rowGroup.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.semanticui.css" />
+    <Content Include="Content\DataTables\css\rowGroup.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.bootstrap.css" />
+    <Content Include="Content\DataTables\css\rowReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\rowReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.dataTables.css" />
+    <Content Include="Content\DataTables\css\rowReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.foundation.css" />
+    <Content Include="Content\DataTables\css\rowReorder.foundation.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.jqueryui.css" />
+    <Content Include="Content\DataTables\css\rowReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.semanticui.css" />
+    <Content Include="Content\DataTables\css\rowReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\scroller.bootstrap.css" />
+    <Content Include="Content\DataTables\css\scroller.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\scroller.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\scroller.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\scroller.dataTables.css" />
+    <Content Include="Content\DataTables\css\scroller.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\scroller.foundation.css" />
+    <Content Include="Content\DataTables\css\scroller.foundation.min.css" />
+    <Content Include="Content\DataTables\css\scroller.jqueryui.css" />
+    <Content Include="Content\DataTables\css\scroller.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\scroller.semanticui.css" />
+    <Content Include="Content\DataTables\css\scroller.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\select.bootstrap.css" />
+    <Content Include="Content\DataTables\css\select.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\select.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\select.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\select.dataTables.css" />
+    <Content Include="Content\DataTables\css\select.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\select.foundation.css" />
+    <Content Include="Content\DataTables\css\select.foundation.min.css" />
+    <Content Include="Content\DataTables\css\select.jqueryui.css" />
+    <Content Include="Content\DataTables\css\select.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\select.semanticui.css" />
+    <Content Include="Content\DataTables\css\select.semanticui.min.css" />
+    <Content Include="Content\DataTables\images\details_close.png" />
+    <Content Include="Content\DataTables\images\details_open.png" />
+    <Content Include="Content\DataTables\images\sort_asc.png" />
+    <Content Include="Content\DataTables\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables\images\sort_both.png" />
+    <Content Include="Content\DataTables\images\sort_desc.png" />
+    <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\inputs-ext\address\address.css" />
+    <Content Include="Content\inputs-ext\typeaheadjs\lib\typeahead.js-bootstrap.css" />
+    <Content Include="Content\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.css" />
+    <Content Include="Content\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysiwyg-color.css" />
+    <Content Include="Content\jquery-editable\css\jquery-editable.css" />
+    <Content Include="Content\jquery-editable\img\clear.png" />
+    <Content Include="Content\jquery-editable\img\loading.gif" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\animated-overlay.gif" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Content\jqueryui-editable\css\jqueryui-editable.css" />
+    <Content Include="Content\jqueryui-editable\img\clear.png" />
+    <Content Include="Content\jqueryui-editable\img\loading.gif" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\apple-icon-114x114-precomposed.png" />
+    <Content Include="Images\apple-icon-114x114.png" />
+    <Content Include="Images\apple-icon-144x144-precomposed.png" />
+    <Content Include="Images\apple-icon-144x144.png" />
+    <Content Include="Images\apple-icon-57x57-precomposed.png" />
+    <Content Include="Images\apple-icon-57x57.png" />
+    <Content Include="Images\apple-icon-72x72-precomposed.png" />
+    <Content Include="Images\apple-icon-72x72.png" />
+    <Content Include="Images\PATH logo2.png" />
+    <Content Include="Images\PATH logo3.png" />
+    <Content Include="Images\PATH Logo4.png" />
+    <Content Include="Images\Provalus V Gimp.png" />
+    <Content Include="Scripts\bootstrap-editable\js\bootstrap-editable.js" />
+    <Content Include="Scripts\bootstrap-editable\js\bootstrap-editable.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\DataTables\css\semanticui.scss" />
+    <Content Include="Content\DataTables\css\mixins.scss" />
+    <Content Include="Content\DataTables\css\common.scss" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
+    <None Include="Scripts\jquery-2.0.3-vsdoc.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.foundation.js" />
+    <Content Include="Scripts\DataTables\autoFill.foundation.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.jqueryui.js" />
+    <Content Include="Scripts\DataTables\autoFill.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.semanticui.js" />
+    <Content Include="Scripts\DataTables\autoFill.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\buttons.colVis.js" />
+    <Content Include="Scripts\DataTables\buttons.colVis.min.js" />
+    <Content Include="Scripts\DataTables\buttons.flash.js" />
+    <Content Include="Scripts\DataTables\buttons.flash.min.js" />
+    <Content Include="Scripts\DataTables\buttons.foundation.js" />
+    <Content Include="Scripts\DataTables\buttons.foundation.min.js" />
+    <Content Include="Scripts\DataTables\buttons.html5.js" />
+    <Content Include="Scripts\DataTables\buttons.html5.min.js" />
+    <Content Include="Scripts\DataTables\buttons.jqueryui.js" />
+    <Content Include="Scripts\DataTables\buttons.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\buttons.print.js" />
+    <Content Include="Scripts\DataTables\buttons.print.min.js" />
+    <Content Include="Scripts\DataTables\buttons.semanticui.js" />
+    <Content Include="Scripts\DataTables\buttons.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.autoFill.js" />
+    <Content Include="Scripts\DataTables\dataTables.autoFill.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.buttons.js" />
+    <Content Include="Scripts\DataTables\dataTables.buttons.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.colReorder.js" />
+    <Content Include="Scripts\DataTables\dataTables.colReorder.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedHeader.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTables\dataTables.foundation.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTables\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.keyTable.js" />
+    <Content Include="Scripts\DataTables\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.material.js" />
+    <Content Include="Scripts\DataTables\dataTables.material.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowGroup.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowGroup.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowReorder.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowReorder.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.select.js" />
+    <Content Include="Scripts\DataTables\dataTables.select.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.semanticui.js" />
+    <Content Include="Scripts\DataTables\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.uikit.js" />
+    <Content Include="Scripts\DataTables\dataTables.uikit.min.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\responsive.foundation.js" />
+    <Content Include="Scripts\DataTables\responsive.foundation.min.js" />
+    <Content Include="Scripts\DataTables\responsive.jqueryui.js" />
+    <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\responsive.semanticui.js" />
+    <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap3-editable\js\bootstrap-editable.js" />
+    <Content Include="Scripts\bootstrap3-editable\js\bootstrap-editable.min.js" />
+    <Content Include="Scripts\inputs-ext\address\address.js" />
+    <Content Include="Scripts\inputs-ext\typeaheadjs\lib\typeahead.js" />
+    <Content Include="Scripts\inputs-ext\typeaheadjs\typeaheadjs.js" />
+    <Content Include="Scripts\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.js" />
+    <Content Include="Scripts\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.min.js" />
+    <Content Include="Scripts\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysihtml5-0.3.0.js" />
+    <Content Include="Scripts\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysihtml5-0.3.0.min.js" />
+    <Content Include="Scripts\inputs-ext\wysihtml5\wysihtml5.js" />
+    <Content Include="Scripts\jquery-editable\jquery-ui-datepicker\js\jquery-ui-1.10.3.custom.js" />
+    <Content Include="Scripts\jquery-editable\jquery-ui-datepicker\js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Scripts\jquery-editable\js\jquery-editable-poshytip.js" />
+    <Content Include="Scripts\jquery-editable\js\jquery-editable-poshytip.min.js" />
+    <Content Include="Scripts\jqueryui-editable\js\jqueryui-editable.js" />
+    <Content Include="Scripts\jqueryui-editable\js\jqueryui-editable.min.js" />
+    <Content Include="Scripts\tablesort.js" />
+    <Content Include="semantic\less\fonts\icons.svg" />
+    <Content Include="semantic\less\images\loader-large-inverted.gif" />
+    <Content Include="semantic\less\images\loader-large.gif" />
+    <Content Include="semantic\less\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\less\images\loader-medium.gif" />
+    <Content Include="semantic\less\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\less\images\loader-mini.gif" />
+    <Content Include="semantic\less\images\loader-small-inverted.gif" />
+    <Content Include="semantic\less\images\loader-small.gif" />
+    <Content Include="semantic\less\modules\accordion.js" />
+    <Content Include="semantic\less\modules\behavior\api.js" />
+    <Content Include="semantic\less\modules\behavior\colorize.js" />
+    <Content Include="semantic\less\modules\behavior\form.js" />
+    <Content Include="semantic\less\modules\behavior\state.js" />
+    <Content Include="semantic\less\modules\carousel.js" />
+    <Content Include="semantic\less\modules\chatroom.js" />
+    <Content Include="semantic\less\modules\checkbox.js" />
+    <Content Include="semantic\less\modules\dimmer.js" />
+    <Content Include="semantic\less\modules\dropdown.js" />
+    <Content Include="semantic\less\modules\modal.js" />
+    <Content Include="semantic\less\modules\nag.js" />
+    <Content Include="semantic\less\modules\popup.js" />
+    <Content Include="semantic\less\modules\rating.js" />
+    <Content Include="semantic\less\modules\search.js" />
+    <Content Include="semantic\less\modules\shape.js" />
+    <Content Include="semantic\less\modules\sidebar.js" />
+    <Content Include="semantic\less\modules\tab.js" />
+    <Content Include="semantic\less\modules\transition.js" />
+    <Content Include="semantic\less\modules\video.js" />
+    <Content Include="semantic\minified\collections\breadcrumb.min.css" />
+    <Content Include="semantic\minified\collections\form.min.css" />
+    <Content Include="semantic\minified\collections\grid.min.css" />
+    <Content Include="semantic\minified\collections\menu.min.css" />
+    <Content Include="semantic\minified\collections\message.min.css" />
+    <Content Include="semantic\minified\collections\table.min.css" />
+    <Content Include="semantic\minified\elements\button.min.css" />
+    <Content Include="semantic\minified\elements\divider.min.css" />
+    <Content Include="semantic\minified\elements\header.min.css" />
+    <Content Include="semantic\minified\elements\icon.min.css" />
+    <Content Include="semantic\minified\elements\image.min.css" />
+    <Content Include="semantic\minified\elements\input.min.css" />
+    <Content Include="semantic\minified\elements\label.min.css" />
+    <Content Include="semantic\minified\elements\loader.min.css" />
+    <Content Include="semantic\minified\elements\progress.min.css" />
+    <Content Include="semantic\minified\elements\segment.min.css" />
+    <Content Include="semantic\minified\elements\step.min.css" />
+    <Content Include="semantic\minified\fonts\icons.svg" />
+    <Content Include="semantic\minified\images\loader-large-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-large.gif" />
+    <Content Include="semantic\minified\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-medium.gif" />
+    <Content Include="semantic\minified\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-mini.gif" />
+    <Content Include="semantic\minified\images\loader-small-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-small.gif" />
+    <Content Include="semantic\minified\modules\accordion.js" />
+    <Content Include="semantic\minified\modules\accordion.min.css" />
+    <Content Include="semantic\minified\modules\accordion.min.js" />
+    <Content Include="semantic\minified\modules\behavior\api.js" />
+    <Content Include="semantic\minified\modules\behavior\api.min.js" />
+    <Content Include="semantic\minified\modules\behavior\colorize.js" />
+    <Content Include="semantic\minified\modules\behavior\colorize.min.js" />
+    <Content Include="semantic\minified\modules\behavior\form.js" />
+    <Content Include="semantic\minified\modules\behavior\form.min.js" />
+    <Content Include="semantic\minified\modules\behavior\state.js" />
+    <Content Include="semantic\minified\modules\behavior\state.min.js" />
+    <Content Include="semantic\minified\modules\carousel.js" />
+    <Content Include="semantic\minified\modules\carousel.min.css" />
+    <Content Include="semantic\minified\modules\carousel.min.js" />
+    <Content Include="semantic\minified\modules\chatroom.js" />
+    <Content Include="semantic\minified\modules\chatroom.min.css" />
+    <Content Include="semantic\minified\modules\chatroom.min.js" />
+    <Content Include="semantic\minified\modules\checkbox.js" />
+    <Content Include="semantic\minified\modules\checkbox.min.css" />
+    <Content Include="semantic\minified\modules\checkbox.min.js" />
+    <Content Include="semantic\minified\modules\dimmer.js" />
+    <Content Include="semantic\minified\modules\dimmer.min.css" />
+    <Content Include="semantic\minified\modules\dimmer.min.js" />
+    <Content Include="semantic\minified\modules\dropdown.js" />
+    <Content Include="semantic\minified\modules\dropdown.min.css" />
+    <Content Include="semantic\minified\modules\dropdown.min.js" />
+    <Content Include="semantic\minified\modules\extra.min.css" />
+    <Content Include="semantic\minified\modules\modal.js" />
+    <Content Include="semantic\minified\modules\modal.min.css" />
+    <Content Include="semantic\minified\modules\modal.min.js" />
+    <Content Include="semantic\minified\modules\nag.js" />
+    <Content Include="semantic\minified\modules\nag.min.css" />
+    <Content Include="semantic\minified\modules\nag.min.js" />
+    <Content Include="semantic\minified\modules\popup.js" />
+    <Content Include="semantic\minified\modules\popup.min.css" />
+    <Content Include="semantic\minified\modules\popup.min.js" />
+    <Content Include="semantic\minified\modules\rating.js" />
+    <Content Include="semantic\minified\modules\rating.min.css" />
+    <Content Include="semantic\minified\modules\rating.min.js" />
+    <Content Include="semantic\minified\modules\reveal.min.css" />
+    <Content Include="semantic\minified\modules\search.js" />
+    <Content Include="semantic\minified\modules\search.min.css" />
+    <Content Include="semantic\minified\modules\search.min.js" />
+    <Content Include="semantic\minified\modules\shape.js" />
+    <Content Include="semantic\minified\modules\shape.min.css" />
+    <Content Include="semantic\minified\modules\shape.min.js" />
+    <Content Include="semantic\minified\modules\sidebar.js" />
+    <Content Include="semantic\minified\modules\sidebar.min.css" />
+    <Content Include="semantic\minified\modules\sidebar.min.js" />
+    <Content Include="semantic\minified\modules\tab.js" />
+    <Content Include="semantic\minified\modules\tab.min.css" />
+    <Content Include="semantic\minified\modules\tab.min.js" />
+    <Content Include="semantic\minified\modules\transition.js" />
+    <Content Include="semantic\minified\modules\transition.min.css" />
+    <Content Include="semantic\minified\modules\transition.min.js" />
+    <Content Include="semantic\minified\modules\video.js" />
+    <Content Include="semantic\minified\modules\video.min.css" />
+    <Content Include="semantic\minified\modules\video.min.js" />
+    <Content Include="semantic\minified\views\comment.min.css" />
+    <Content Include="semantic\minified\views\feed.min.css" />
+    <Content Include="semantic\minified\views\item.min.css" />
+    <Content Include="semantic\minified\views\list.min.css" />
+    <Content Include="semantic\minified\views\sitemap.min.css" />
+    <Content Include="semantic\minified\views\statistic.min.css" />
+    <Content Include="semantic\packaged\css\semantic.min.css" />
+    <Content Include="semantic\packaged\fonts\icons.svg" />
+    <Content Include="semantic\packaged\images\loader-large-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-large.gif" />
+    <Content Include="semantic\packaged\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-medium.gif" />
+    <Content Include="semantic\packaged\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-mini.gif" />
+    <Content Include="semantic\packaged\images\loader-small-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-small.gif" />
+    <Content Include="semantic\packaged\javascript\semantic.min.js" />
+    <Content Include="semantic\uncompressed\collections\breadcrumb.css" />
+    <Content Include="semantic\uncompressed\collections\form.css" />
+    <Content Include="semantic\uncompressed\collections\grid.css" />
+    <Content Include="semantic\uncompressed\collections\menu.css" />
+    <Content Include="semantic\uncompressed\collections\message.css" />
+    <Content Include="semantic\uncompressed\collections\table.css" />
+    <Content Include="semantic\uncompressed\elements\button.css" />
+    <Content Include="semantic\uncompressed\elements\divider.css" />
+    <Content Include="semantic\uncompressed\elements\header.css" />
+    <Content Include="semantic\uncompressed\elements\icon.css" />
+    <Content Include="semantic\uncompressed\elements\image.css" />
+    <Content Include="semantic\uncompressed\elements\input.css" />
+    <Content Include="semantic\uncompressed\elements\label.css" />
+    <Content Include="semantic\uncompressed\elements\loader.css" />
+    <Content Include="semantic\uncompressed\elements\progress.css" />
+    <Content Include="semantic\uncompressed\elements\segment.css" />
+    <Content Include="semantic\uncompressed\elements\step.css" />
+    <Content Include="semantic\uncompressed\fonts\icons.svg" />
+    <Content Include="semantic\uncompressed\images\loader-large-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-large.gif" />
+    <Content Include="semantic\uncompressed\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-medium.gif" />
+    <Content Include="semantic\uncompressed\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-mini.gif" />
+    <Content Include="semantic\uncompressed\images\loader-small-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-small.gif" />
+    <Content Include="semantic\uncompressed\modules\accordion.css" />
+    <Content Include="semantic\uncompressed\modules\accordion.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\api.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\colorize.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\form.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\state.js" />
+    <Content Include="semantic\uncompressed\modules\carousel.css" />
+    <Content Include="semantic\uncompressed\modules\carousel.js" />
+    <Content Include="semantic\uncompressed\modules\chatroom.css" />
+    <Content Include="semantic\uncompressed\modules\chatroom.js" />
+    <Content Include="semantic\uncompressed\modules\checkbox.css" />
+    <Content Include="semantic\uncompressed\modules\checkbox.js" />
+    <Content Include="semantic\uncompressed\modules\dimmer.css" />
+    <Content Include="semantic\uncompressed\modules\dimmer.js" />
+    <Content Include="semantic\uncompressed\modules\dropdown.css" />
+    <Content Include="semantic\uncompressed\modules\dropdown.js" />
+    <Content Include="semantic\uncompressed\modules\extra.css" />
+    <Content Include="semantic\uncompressed\modules\modal.css" />
+    <Content Include="semantic\uncompressed\modules\modal.js" />
+    <Content Include="semantic\uncompressed\modules\nag.css" />
+    <Content Include="semantic\uncompressed\modules\nag.js" />
+    <Content Include="semantic\uncompressed\modules\popup.css" />
+    <Content Include="semantic\uncompressed\modules\popup.js" />
+    <Content Include="semantic\uncompressed\modules\rating.css" />
+    <Content Include="semantic\uncompressed\modules\rating.js" />
+    <Content Include="semantic\uncompressed\modules\reveal.css" />
+    <Content Include="semantic\uncompressed\modules\search.css" />
+    <Content Include="semantic\uncompressed\modules\search.js" />
+    <Content Include="semantic\uncompressed\modules\shape.css" />
+    <Content Include="semantic\uncompressed\modules\shape.js" />
+    <Content Include="semantic\uncompressed\modules\sidebar.css" />
+    <Content Include="semantic\uncompressed\modules\sidebar.js" />
+    <Content Include="semantic\uncompressed\modules\tab.css" />
+    <Content Include="semantic\uncompressed\modules\tab.js" />
+    <Content Include="semantic\uncompressed\modules\transition.css" />
+    <Content Include="semantic\uncompressed\modules\transition.js" />
+    <Content Include="semantic\uncompressed\modules\video.css" />
+    <Content Include="semantic\uncompressed\modules\video.js" />
+    <Content Include="semantic\uncompressed\views\comment.css" />
+    <Content Include="semantic\uncompressed\views\feed.css" />
+    <Content Include="semantic\uncompressed\views\item.css" />
+    <Content Include="semantic\uncompressed\views\list.css" />
+    <Content Include="semantic\uncompressed\views\sitemap.css" />
+    <Content Include="semantic\uncompressed\views\statistic.css" />
+    <Content Include="x-editable\bootstrap3-editable\css\bootstrap-editable.css" />
+    <Content Include="x-editable\bootstrap3-editable\img\clear.png" />
+    <Content Include="x-editable\bootstrap3-editable\img\loading.gif" />
+    <Content Include="x-editable\bootstrap3-editable\js\bootstrap-editable.js" />
+    <Content Include="x-editable\bootstrap3-editable\js\bootstrap-editable.min.js" />
+    <Content Include="x-editable\inputs-ext\address\address.css" />
+    <Content Include="x-editable\inputs-ext\address\address.js" />
+    <Content Include="x-editable\inputs-ext\typeaheadjs\lib\typeahead.js" />
+    <Content Include="x-editable\inputs-ext\typeaheadjs\lib\typeahead.js-bootstrap.css" />
+    <Content Include="x-editable\inputs-ext\typeaheadjs\typeaheadjs.js" />
+    <Content Include="x-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.css" />
+    <Content Include="x-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.js" />
+    <Content Include="x-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.min.js" />
+    <Content Include="x-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysihtml5-0.3.0.js" />
+    <Content Include="x-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysihtml5-0.3.0.min.js" />
+    <Content Include="x-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysiwyg-color.css" />
+    <Content Include="x-editable\inputs-ext\wysihtml5\wysihtml5.js" />
+    <None Include="Properties\PublishProfiles\ProvalusApplicantTrackingHub - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ProvalusApplicantTrackingHub - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\SignaturePadInit.js" />
+    <Content Include="Scripts\signature_pad.js" />
+    <Content Include="Scripts\signature_pad.min.js" />
+    <Content Include="semantic\dist\components\accordion.css" />
+    <Content Include="semantic\dist\components\accordion.js" />
+    <Content Include="semantic\dist\components\accordion.min.css" />
+    <Content Include="semantic\dist\components\accordion.min.js" />
+    <Content Include="semantic\dist\components\ad.css" />
+    <Content Include="semantic\dist\components\ad.min.css" />
+    <Content Include="semantic\dist\components\api.js" />
+    <Content Include="semantic\dist\components\api.min.js" />
+    <Content Include="semantic\dist\components\breadcrumb.css" />
+    <Content Include="semantic\dist\components\breadcrumb.min.css" />
+    <Content Include="semantic\dist\components\button.css" />
+    <Content Include="semantic\dist\components\button.min.css" />
+    <Content Include="semantic\dist\components\card.css" />
+    <Content Include="semantic\dist\components\card.min.css" />
+    <Content Include="semantic\dist\components\checkbox.css" />
+    <Content Include="semantic\dist\components\checkbox.js" />
+    <Content Include="semantic\dist\components\checkbox.min.css" />
+    <Content Include="semantic\dist\components\checkbox.min.js" />
+    <Content Include="semantic\dist\components\comment.css" />
+    <Content Include="semantic\dist\components\comment.min.css" />
+    <Content Include="semantic\dist\components\container.css" />
+    <Content Include="semantic\dist\components\container.min.css" />
+    <Content Include="semantic\dist\components\dimmer.css" />
+    <Content Include="semantic\dist\components\dimmer.js" />
+    <Content Include="semantic\dist\components\dimmer.min.css" />
+    <Content Include="semantic\dist\components\dimmer.min.js" />
+    <Content Include="semantic\dist\components\divider.css" />
+    <Content Include="semantic\dist\components\divider.min.css" />
+    <Content Include="semantic\dist\components\dropdown.css" />
+    <Content Include="semantic\dist\components\dropdown.js" />
+    <Content Include="semantic\dist\components\dropdown.min.css" />
+    <Content Include="semantic\dist\components\dropdown.min.js" />
+    <Content Include="semantic\dist\components\embed.css" />
+    <Content Include="semantic\dist\components\embed.js" />
+    <Content Include="semantic\dist\components\embed.min.css" />
+    <Content Include="semantic\dist\components\embed.min.js" />
+    <Content Include="semantic\dist\components\feed.css" />
+    <Content Include="semantic\dist\components\feed.min.css" />
+    <Content Include="semantic\dist\components\flag.css" />
+    <Content Include="semantic\dist\components\flag.min.css" />
+    <Content Include="semantic\dist\components\form.css" />
+    <Content Include="semantic\dist\components\form.js" />
+    <Content Include="semantic\dist\components\form.min.css" />
+    <Content Include="semantic\dist\components\form.min.js" />
+    <Content Include="semantic\dist\components\grid.css" />
+    <Content Include="semantic\dist\components\grid.min.css" />
+    <Content Include="semantic\dist\components\header.css" />
+    <Content Include="semantic\dist\components\header.min.css" />
+    <Content Include="semantic\dist\components\icon.css" />
+    <Content Include="semantic\dist\components\icon.min.css" />
+    <Content Include="semantic\dist\components\image.css" />
+    <Content Include="semantic\dist\components\image.min.css" />
+    <Content Include="semantic\dist\components\input.css" />
+    <Content Include="semantic\dist\components\input.min.css" />
+    <Content Include="semantic\dist\components\item.css" />
+    <Content Include="semantic\dist\components\item.min.css" />
+    <Content Include="semantic\dist\components\label.css" />
+    <Content Include="semantic\dist\components\label.min.css" />
+    <Content Include="semantic\dist\components\list.css" />
+    <Content Include="semantic\dist\components\list.min.css" />
+    <Content Include="semantic\dist\components\loader.css" />
+    <Content Include="semantic\dist\components\loader.min.css" />
+    <Content Include="semantic\dist\components\menu.css" />
+    <Content Include="semantic\dist\components\menu.min.css" />
+    <Content Include="semantic\dist\components\message.css" />
+    <Content Include="semantic\dist\components\message.min.css" />
+    <Content Include="semantic\dist\components\modal.css" />
+    <Content Include="semantic\dist\components\modal.js" />
+    <Content Include="semantic\dist\components\modal.min.css" />
+    <Content Include="semantic\dist\components\modal.min.js" />
+    <Content Include="semantic\dist\components\nag.css" />
+    <Content Include="semantic\dist\components\nag.js" />
+    <Content Include="semantic\dist\components\nag.min.css" />
+    <Content Include="semantic\dist\components\nag.min.js" />
+    <Content Include="semantic\dist\components\popup.css" />
+    <Content Include="semantic\dist\components\popup.js" />
+    <Content Include="semantic\dist\components\popup.min.css" />
+    <Content Include="semantic\dist\components\popup.min.js" />
+    <Content Include="semantic\dist\components\progress.css" />
+    <Content Include="semantic\dist\components\progress.js" />
+    <Content Include="semantic\dist\components\progress.min.css" />
+    <Content Include="semantic\dist\components\progress.min.js" />
+    <Content Include="semantic\dist\components\rail.css" />
+    <Content Include="semantic\dist\components\rail.min.css" />
+    <Content Include="semantic\dist\components\rating.css" />
+    <Content Include="semantic\dist\components\rating.js" />
+    <Content Include="semantic\dist\components\rating.min.css" />
+    <Content Include="semantic\dist\components\rating.min.js" />
+    <Content Include="semantic\dist\components\reset.css" />
+    <Content Include="semantic\dist\components\reset.min.css" />
+    <Content Include="semantic\dist\components\reveal.css" />
+    <Content Include="semantic\dist\components\reveal.min.css" />
+    <Content Include="semantic\dist\components\search.css" />
+    <Content Include="semantic\dist\components\search.js" />
+    <Content Include="semantic\dist\components\search.min.css" />
+    <Content Include="semantic\dist\components\search.min.js" />
+    <Content Include="semantic\dist\components\segment.css" />
+    <Content Include="semantic\dist\components\segment.min.css" />
+    <Content Include="semantic\dist\components\shape.css" />
+    <Content Include="semantic\dist\components\shape.js" />
+    <Content Include="semantic\dist\components\shape.min.css" />
+    <Content Include="semantic\dist\components\shape.min.js" />
+    <Content Include="semantic\dist\components\sidebar.css" />
+    <Content Include="semantic\dist\components\sidebar.js" />
+    <Content Include="semantic\dist\components\sidebar.min.css" />
+    <Content Include="semantic\dist\components\sidebar.min.js" />
+    <Content Include="semantic\dist\components\site.css" />
+    <Content Include="semantic\dist\components\site.js" />
+    <Content Include="semantic\dist\components\site.min.css" />
+    <Content Include="semantic\dist\components\site.min.js" />
+    <Content Include="semantic\dist\components\state.js" />
+    <Content Include="semantic\dist\components\state.min.js" />
+    <Content Include="semantic\dist\components\statistic.css" />
+    <Content Include="semantic\dist\components\statistic.min.css" />
+    <Content Include="semantic\dist\components\step.css" />
+    <Content Include="semantic\dist\components\step.min.css" />
+    <Content Include="semantic\dist\components\sticky.css" />
+    <Content Include="semantic\dist\components\sticky.js" />
+    <Content Include="semantic\dist\components\sticky.min.css" />
+    <Content Include="semantic\dist\components\sticky.min.js" />
+    <Content Include="semantic\dist\components\tab.css" />
+    <Content Include="semantic\dist\components\tab.js" />
+    <Content Include="semantic\dist\components\tab.min.css" />
+    <Content Include="semantic\dist\components\tab.min.js" />
+    <Content Include="semantic\dist\components\table.css" />
+    <Content Include="semantic\dist\components\table.min.css" />
+    <Content Include="semantic\dist\components\transition.css" />
+    <Content Include="semantic\dist\components\transition.js" />
+    <Content Include="semantic\dist\components\transition.min.css" />
+    <Content Include="semantic\dist\components\transition.min.js" />
+    <Content Include="semantic\dist\components\visibility.js" />
+    <Content Include="semantic\dist\components\visibility.min.js" />
+    <Content Include="semantic\dist\semantic.css" />
+    <Content Include="semantic\dist\semantic.js" />
+    <Content Include="semantic\dist\semantic.min.css" />
+    <Content Include="semantic\dist\semantic.min.js" />
+    <Content Include="semantic\dist\themes\basic\assets\fonts\icons.svg" />
+    <Content Include="semantic\dist\themes\default\assets\fonts\icons.svg" />
+    <Content Include="semantic\dist\themes\default\assets\images\flags.png" />
+    <Content Include="semantic\dist\themes\github\assets\fonts\octicons.svg" />
+    <Content Include="semantic\dist\themes\material\assets\fonts\icons.svg" />
+    <Content Include="semantic\gulpfile.js" />
+    <Content Include="semantic\src\definitions\behaviors\api.js" />
+    <Content Include="semantic\src\definitions\behaviors\colorize.js" />
+    <Content Include="semantic\src\definitions\behaviors\form.js" />
+    <Content Include="semantic\src\definitions\behaviors\state.js" />
+    <Content Include="semantic\src\definitions\behaviors\visibility.js" />
+    <Content Include="semantic\src\definitions\behaviors\visit.js" />
+    <Content Include="semantic\src\definitions\globals\site.js" />
+    <Content Include="semantic\src\definitions\modules\accordion.js" />
+    <Content Include="semantic\src\definitions\modules\checkbox.js" />
+    <Content Include="semantic\src\definitions\modules\dimmer.js" />
+    <Content Include="semantic\src\definitions\modules\dropdown.js" />
+    <Content Include="semantic\src\definitions\modules\embed.js" />
+    <Content Include="semantic\src\definitions\modules\modal.js" />
+    <Content Include="semantic\src\definitions\modules\nag.js" />
+    <Content Include="semantic\src\definitions\modules\popup.js" />
+    <Content Include="semantic\src\definitions\modules\progress.js" />
+    <Content Include="semantic\src\definitions\modules\rating.js" />
+    <Content Include="semantic\src\definitions\modules\search.js" />
+    <Content Include="semantic\src\definitions\modules\shape.js" />
+    <Content Include="semantic\src\definitions\modules\sidebar.js" />
+    <Content Include="semantic\src\definitions\modules\sticky.js" />
+    <Content Include="semantic\src\definitions\modules\tab.js" />
+    <Content Include="semantic\src\definitions\modules\transition.js" />
+    <Content Include="Content\themes\basic\assets\fonts\icons.svg" />
+    <Content Include="Content\themes\default\assets\fonts\icons.svg" />
+    <Content Include="Content\themes\default\assets\images\flags.png" />
+    <Content Include="Content\themes\github\assets\fonts\octicons.svg" />
+    <Content Include="Content\themes\material\assets\fonts\icons.svg" />
+    <Content Include="semantic\tasks\admin\components\create.js" />
+    <Content Include="semantic\tasks\admin\components\init.js" />
+    <Content Include="semantic\tasks\admin\components\update.js" />
+    <Content Include="semantic\tasks\admin\distributions\create.js" />
+    <Content Include="semantic\tasks\admin\distributions\init.js" />
+    <Content Include="semantic\tasks\admin\distributions\update.js" />
+    <Content Include="semantic\tasks\admin\publish.js" />
+    <Content Include="semantic\tasks\admin\register.js" />
+    <Content Include="semantic\tasks\admin\release.js" />
+    <Content Include="semantic\tasks\build.js" />
+    <Content Include="semantic\tasks\build\assets.js" />
+    <Content Include="semantic\tasks\build\css.js" />
+    <Content Include="semantic\tasks\build\javascript.js" />
+    <Content Include="semantic\tasks\check-install.js" />
+    <Content Include="semantic\tasks\clean.js" />
+    <Content Include="semantic\tasks\collections\admin.js" />
+    <Content Include="semantic\tasks\collections\build.js" />
+    <Content Include="semantic\tasks\collections\internal.js" />
+    <Content Include="semantic\tasks\collections\rtl.js" />
+    <Content Include="semantic\tasks\config\admin\github.js" />
+    <Content Include="semantic\tasks\config\admin\oauth.example.js" />
+    <Content Include="semantic\tasks\config\admin\release.js" />
+    <Content Include="semantic\tasks\config\admin\templates\component-package.js" />
+    <Content Include="semantic\tasks\config\admin\templates\css-package.js" />
+    <Content Include="semantic\tasks\config\admin\templates\less-package.js" />
+    <Content Include="semantic\tasks\config\defaults.js" />
+    <Content Include="semantic\tasks\config\docs.js" />
+    <Content Include="semantic\tasks\config\npm\gulpfile.js" />
+    <Content Include="semantic\tasks\config\project\config.js" />
+    <Content Include="semantic\tasks\config\project\install.js" />
+    <Content Include="semantic\tasks\config\project\release.js" />
+    <Content Include="semantic\tasks\config\tasks.js" />
+    <Content Include="semantic\tasks\config\user.js" />
+    <Content Include="semantic\tasks\docs\build.js" />
+    <Content Include="semantic\tasks\docs\metadata.js" />
+    <Content Include="semantic\tasks\docs\serve.js" />
+    <Content Include="semantic\tasks\install.js" />
+    <Content Include="semantic\tasks\rtl\build.js" />
+    <Content Include="semantic\tasks\rtl\watch.js" />
+    <Content Include="semantic\tasks\version.js" />
+    <Content Include="semantic\tasks\watch.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Employments\Create.cshtml" />
+    <Content Include="Views\Employments\Delete.cshtml" />
+    <Content Include="Views\Employments\Details.cshtml" />
+    <Content Include="Views\Employments\Edit.cshtml" />
+    <Content Include="Views\Employments\Index.cshtml" />
+    <Content Include="Views\Educations\Create.cshtml" />
+    <Content Include="Views\Educations\Delete.cshtml" />
+    <Content Include="Views\Educations\Details.cshtml" />
+    <Content Include="Views\Educations\Edit.cshtml" />
+    <Content Include="Views\Educations\Index.cshtml" />
+    <Content Include="Views\Skills\Create.cshtml" />
+    <Content Include="Views\Skills\Delete.cshtml" />
+    <Content Include="Views\Skills\Details.cshtml" />
+    <Content Include="Views\Skills\Edit.cshtml" />
+    <Content Include="Views\Skills\Index.cshtml" />
+    <Content Include="Views\UserMgmt\Create.cshtml" />
+    <Content Include="Views\UserMgmt\Delete.cshtml" />
+    <Content Include="Views\UserMgmt\Details.cshtml" />
+    <Content Include="Views\UserMgmt\Edit.cshtml" />
+    <Content Include="Views\UserMgmt\Index.cshtml" />
+    <Content Include="Views\JobApps\Create.cshtml" />
+    <Content Include="Views\JobApps\Delete.cshtml" />
+    <Content Include="Views\JobApps\Details.cshtml" />
+    <Content Include="Views\JobApps\Edit.cshtml" />
+    <Content Include="Views\JobApps\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SignaturePad.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SignaturePad.cshtml" />
+    <Content Include="Views\JobApps\VerifyAndSign.cshtml" />
+    <Content Include="semantic\dist\themes\basic\assets\fonts\icons.eot" />
+    <Content Include="semantic\dist\themes\basic\assets\fonts\icons.ttf" />
+    <Content Include="semantic\dist\themes\basic\assets\fonts\icons.woff" />
+    <Content Include="semantic\dist\themes\default\assets\fonts\icons.eot" />
+    <Content Include="semantic\dist\themes\default\assets\fonts\icons.ttf" />
+    <Content Include="semantic\dist\themes\default\assets\fonts\icons.woff" />
+    <Content Include="semantic\dist\themes\default\assets\fonts\icons.woff2" />
+    <Content Include="semantic\dist\themes\github\assets\fonts\octicons-local.ttf" />
+    <Content Include="semantic\dist\themes\github\assets\fonts\octicons.ttf" />
+    <Content Include="semantic\dist\themes\github\assets\fonts\octicons.woff" />
+    <Content Include="semantic\dist\themes\material\assets\fonts\icons.eot" />
+    <Content Include="semantic\dist\themes\material\assets\fonts\icons.ttf" />
+    <Content Include="semantic\dist\themes\material\assets\fonts\icons.woff" />
+    <Content Include="semantic\dist\themes\material\assets\fonts\icons.woff2" />
+    <Content Include="semantic\src\definitions\collections\breadcrumb.less" />
+    <Content Include="semantic\src\definitions\collections\form.less" />
+    <Content Include="semantic\src\definitions\collections\grid.less" />
+    <Content Include="semantic\src\definitions\collections\menu.less" />
+    <Content Include="semantic\src\definitions\collections\message.less" />
+    <Content Include="semantic\src\definitions\collections\table.less" />
+    <Content Include="semantic\src\definitions\elements\button.less" />
+    <Content Include="semantic\src\definitions\elements\container.less" />
+    <Content Include="semantic\src\definitions\elements\divider.less" />
+    <Content Include="semantic\src\definitions\elements\flag.less" />
+    <Content Include="semantic\src\definitions\elements\header.less" />
+    <Content Include="semantic\src\definitions\elements\icon.less" />
+    <Content Include="semantic\src\definitions\elements\image.less" />
+    <Content Include="semantic\src\definitions\elements\input.less" />
+    <Content Include="semantic\src\definitions\elements\label.less" />
+    <Content Include="semantic\src\definitions\elements\list.less" />
+    <Content Include="semantic\src\definitions\elements\loader.less" />
+    <Content Include="semantic\src\definitions\elements\rail.less" />
+    <Content Include="semantic\src\definitions\elements\reveal.less" />
+    <Content Include="semantic\src\definitions\elements\segment.less" />
+    <Content Include="semantic\src\definitions\elements\step.less" />
+    <Content Include="semantic\src\definitions\globals\reset.less" />
+    <Content Include="semantic\src\definitions\globals\site.less" />
+    <Content Include="semantic\src\definitions\modules\accordion.less" />
+    <Content Include="semantic\src\definitions\modules\checkbox.less" />
+    <Content Include="semantic\src\definitions\modules\dimmer.less" />
+    <Content Include="semantic\src\definitions\modules\dropdown.less" />
+    <Content Include="semantic\src\definitions\modules\embed.less" />
+    <Content Include="semantic\src\definitions\modules\modal.less" />
+    <Content Include="semantic\src\definitions\modules\nag.less" />
+    <Content Include="semantic\src\definitions\modules\popup.less" />
+    <Content Include="semantic\src\definitions\modules\progress.less" />
+    <Content Include="semantic\src\definitions\modules\rating.less" />
+    <Content Include="semantic\src\definitions\modules\search.less" />
+    <Content Include="semantic\src\definitions\modules\shape.less" />
+    <Content Include="semantic\src\definitions\modules\sidebar.less" />
+    <Content Include="semantic\src\definitions\modules\sticky.less" />
+    <Content Include="semantic\src\definitions\modules\tab.less" />
+    <Content Include="semantic\src\definitions\modules\transition.less" />
+    <Content Include="semantic\src\definitions\views\ad.less" />
+    <Content Include="semantic\src\definitions\views\card.less" />
+    <Content Include="semantic\src\definitions\views\comment.less" />
+    <Content Include="semantic\src\definitions\views\feed.less" />
+    <Content Include="semantic\src\definitions\views\item.less" />
+    <Content Include="semantic\src\definitions\views\statistic.less" />
+    <Content Include="semantic\src\semantic.less" />
+    <Content Include="semantic\src\site\collections\breadcrumb.overrides" />
+    <Content Include="semantic\src\site\collections\breadcrumb.variables" />
+    <Content Include="semantic\src\site\collections\form.overrides" />
+    <Content Include="semantic\src\site\collections\form.variables" />
+    <Content Include="semantic\src\site\collections\grid.overrides" />
+    <Content Include="semantic\src\site\collections\grid.variables" />
+    <Content Include="semantic\src\site\collections\menu.overrides" />
+    <Content Include="semantic\src\site\collections\menu.variables" />
+    <Content Include="semantic\src\site\collections\message.overrides" />
+    <Content Include="semantic\src\site\collections\message.variables" />
+    <Content Include="semantic\src\site\collections\table.overrides" />
+    <Content Include="semantic\src\site\collections\table.variables" />
+    <Content Include="semantic\src\site\elements\button.overrides" />
+    <Content Include="semantic\src\site\elements\button.variables" />
+    <Content Include="semantic\src\site\elements\container.overrides" />
+    <Content Include="semantic\src\site\elements\container.variables" />
+    <Content Include="semantic\src\site\elements\divider.overrides" />
+    <Content Include="semantic\src\site\elements\divider.variables" />
+    <Content Include="semantic\src\site\elements\flag.overrides" />
+    <Content Include="semantic\src\site\elements\flag.variables" />
+    <Content Include="semantic\src\site\elements\header.overrides" />
+    <Content Include="semantic\src\site\elements\header.variables" />
+    <Content Include="semantic\src\site\elements\icon.overrides" />
+    <Content Include="semantic\src\site\elements\icon.variables" />
+    <Content Include="semantic\src\site\elements\image.overrides" />
+    <Content Include="semantic\src\site\elements\image.variables" />
+    <Content Include="semantic\src\site\elements\input.overrides" />
+    <Content Include="semantic\src\site\elements\input.variables" />
+    <Content Include="semantic\src\site\elements\label.overrides" />
+    <Content Include="semantic\src\site\elements\label.variables" />
+    <Content Include="semantic\src\site\elements\list.overrides" />
+    <Content Include="semantic\src\site\elements\list.variables" />
+    <Content Include="semantic\src\site\elements\loader.overrides" />
+    <Content Include="semantic\src\site\elements\loader.variables" />
+    <Content Include="semantic\src\site\elements\rail.overrides" />
+    <Content Include="semantic\src\site\elements\rail.variables" />
+    <Content Include="semantic\src\site\elements\reveal.overrides" />
+    <Content Include="semantic\src\site\elements\reveal.variables" />
+    <Content Include="semantic\src\site\elements\segment.overrides" />
+    <Content Include="semantic\src\site\elements\segment.variables" />
+    <Content Include="semantic\src\site\elements\step.overrides" />
+    <Content Include="semantic\src\site\elements\step.variables" />
+    <Content Include="semantic\src\site\globals\reset.overrides" />
+    <Content Include="semantic\src\site\globals\reset.variables" />
+    <Content Include="semantic\src\site\globals\site.overrides" />
+    <Content Include="semantic\src\site\globals\site.variables" />
+    <Content Include="semantic\src\site\modules\accordion.overrides" />
+    <Content Include="semantic\src\site\modules\accordion.variables" />
+    <Content Include="semantic\src\site\modules\chatroom.overrides" />
+    <Content Include="semantic\src\site\modules\chatroom.variables" />
+    <Content Include="semantic\src\site\modules\checkbox.overrides" />
+    <Content Include="semantic\src\site\modules\checkbox.variables" />
+    <Content Include="semantic\src\site\modules\dimmer.overrides" />
+    <Content Include="semantic\src\site\modules\dimmer.variables" />
+    <Content Include="semantic\src\site\modules\dropdown.overrides" />
+    <Content Include="semantic\src\site\modules\dropdown.variables" />
+    <Content Include="semantic\src\site\modules\embed.overrides" />
+    <Content Include="semantic\src\site\modules\embed.variables" />
+    <Content Include="semantic\src\site\modules\modal.overrides" />
+    <Content Include="semantic\src\site\modules\modal.variables" />
+    <Content Include="semantic\src\site\modules\nag.overrides" />
+    <Content Include="semantic\src\site\modules\nag.variables" />
+    <Content Include="semantic\src\site\modules\popup.overrides" />
+    <Content Include="semantic\src\site\modules\popup.variables" />
+    <Content Include="semantic\src\site\modules\progress.overrides" />
+    <Content Include="semantic\src\site\modules\progress.variables" />
+    <Content Include="semantic\src\site\modules\rating.overrides" />
+    <Content Include="semantic\src\site\modules\rating.variables" />
+    <Content Include="semantic\src\site\modules\search.overrides" />
+    <Content Include="semantic\src\site\modules\search.variables" />
+    <Content Include="semantic\src\site\modules\shape.overrides" />
+    <Content Include="semantic\src\site\modules\shape.variables" />
+    <Content Include="semantic\src\site\modules\sidebar.overrides" />
+    <Content Include="semantic\src\site\modules\sidebar.variables" />
+    <Content Include="semantic\src\site\modules\sticky.overrides" />
+    <Content Include="semantic\src\site\modules\sticky.variables" />
+    <Content Include="semantic\src\site\modules\tab.overrides" />
+    <Content Include="semantic\src\site\modules\tab.variables" />
+    <Content Include="semantic\src\site\modules\transition.overrides" />
+    <Content Include="semantic\src\site\modules\transition.variables" />
+    <Content Include="semantic\src\site\views\ad.overrides" />
+    <Content Include="semantic\src\site\views\ad.variables" />
+    <Content Include="semantic\src\site\views\card.overrides" />
+    <Content Include="semantic\src\site\views\card.variables" />
+    <Content Include="semantic\src\site\views\comment.overrides" />
+    <Content Include="semantic\src\site\views\comment.variables" />
+    <Content Include="semantic\src\site\views\feed.overrides" />
+    <Content Include="semantic\src\site\views\feed.variables" />
+    <Content Include="semantic\src\site\views\item.overrides" />
+    <Content Include="semantic\src\site\views\item.variables" />
+    <Content Include="semantic\src\site\views\statistic.overrides" />
+    <Content Include="semantic\src\site\views\statistic.variables" />
+    <Content Include="semantic\src\theme.config" />
+    <Content Include="semantic\src\theme.less" />
+    <Content Include="Content\themes\amazon\elements\button.overrides" />
+    <Content Include="Content\themes\amazon\elements\button.variables" />
+    <Content Include="Content\themes\amazon\globals\site.variables" />
+    <Content Include="Content\themes\basic\assets\fonts\icons.eot" />
+    <Content Include="Content\themes\basic\assets\fonts\icons.ttf" />
+    <Content Include="Content\themes\basic\assets\fonts\icons.woff" />
+    <Content Include="Content\themes\basic\collections\table.overrides" />
+    <Content Include="Content\themes\basic\collections\table.variables" />
+    <Content Include="Content\themes\basic\elements\button.overrides" />
+    <Content Include="Content\themes\basic\elements\button.variables" />
+    <Content Include="Content\themes\basic\elements\icon.overrides" />
+    <Content Include="Content\themes\basic\elements\icon.variables" />
+    <Content Include="Content\themes\basic\elements\step.overrides" />
+    <Content Include="Content\themes\basic\elements\step.variables" />
+    <Content Include="Content\themes\basic\globals\reset.overrides" />
+    <Content Include="Content\themes\basic\globals\reset.variables" />
+    <Content Include="Content\themes\basic\modules\progress.overrides" />
+    <Content Include="Content\themes\basic\modules\progress.variables" />
+    <Content Include="Content\themes\basic\views\card.overrides" />
+    <Content Include="Content\themes\basic\views\card.variables" />
+    <Content Include="Content\themes\bookish\elements\header.overrides" />
+    <Content Include="Content\themes\bookish\elements\header.variables" />
+    <Content Include="Content\themes\bootstrap3\elements\button.overrides" />
+    <Content Include="Content\themes\bootstrap3\elements\button.variables" />
+    <Content Include="Content\themes\chubby\collections\form.overrides" />
+    <Content Include="Content\themes\chubby\collections\form.variables" />
+    <Content Include="Content\themes\chubby\collections\menu.overrides" />
+    <Content Include="Content\themes\chubby\collections\menu.variables" />
+    <Content Include="Content\themes\chubby\elements\button.overrides" />
+    <Content Include="Content\themes\chubby\elements\button.variables" />
+    <Content Include="Content\themes\chubby\elements\header.overrides" />
+    <Content Include="Content\themes\chubby\elements\header.variables" />
+    <Content Include="Content\themes\chubby\modules\accordion.overrides" />
+    <Content Include="Content\themes\chubby\modules\accordion.variables" />
+    <Content Include="Content\themes\chubby\views\comment.overrides" />
+    <Content Include="Content\themes\chubby\views\comment.variables" />
+    <Content Include="Content\themes\classic\collections\table.overrides" />
+    <Content Include="Content\themes\classic\collections\table.variables" />
+    <Content Include="Content\themes\classic\elements\button.overrides" />
+    <Content Include="Content\themes\classic\elements\button.variables" />
+    <Content Include="Content\themes\classic\elements\header.overrides" />
+    <Content Include="Content\themes\classic\elements\header.variables" />
+    <Content Include="Content\themes\classic\modules\progress.overrides" />
+    <Content Include="Content\themes\classic\modules\progress.variables" />
+    <Content Include="Content\themes\classic\views\card.overrides" />
+    <Content Include="Content\themes\classic\views\card.variables" />
+    <Content Include="Content\themes\colored\modules\checkbox.overrides" />
+    <Content Include="Content\themes\colored\modules\checkbox.variables" />
+    <Content Include="Content\themes\default\assets\fonts\icons.eot" />
+    <Content Include="Content\themes\default\assets\fonts\icons.ttf" />
+    <Content Include="Content\themes\default\assets\fonts\icons.woff" />
+    <Content Include="Content\themes\default\assets\fonts\icons.woff2" />
+    <Content Include="Content\themes\default\collections\breadcrumb.overrides" />
+    <Content Include="Content\themes\default\collections\breadcrumb.variables" />
+    <Content Include="Content\themes\default\collections\form.overrides" />
+    <Content Include="Content\themes\default\collections\form.variables" />
+    <Content Include="Content\themes\default\collections\grid.overrides" />
+    <Content Include="Content\themes\default\collections\grid.variables" />
+    <Content Include="Content\themes\default\collections\menu.overrides" />
+    <Content Include="Content\themes\default\collections\menu.variables" />
+    <Content Include="Content\themes\default\collections\message.overrides" />
+    <Content Include="Content\themes\default\collections\message.variables" />
+    <Content Include="Content\themes\default\collections\table.overrides" />
+    <Content Include="Content\themes\default\collections\table.variables" />
+    <Content Include="Content\themes\default\elements\button.overrides" />
+    <Content Include="Content\themes\default\elements\button.variables" />
+    <Content Include="Content\themes\default\elements\container.overrides" />
+    <Content Include="Content\themes\default\elements\container.variables" />
+    <Content Include="Content\themes\default\elements\divider.overrides" />
+    <Content Include="Content\themes\default\elements\divider.variables" />
+    <Content Include="Content\themes\default\elements\flag.overrides" />
+    <Content Include="Content\themes\default\elements\flag.variables" />
+    <Content Include="Content\themes\default\elements\header.overrides" />
+    <Content Include="Content\themes\default\elements\header.variables" />
+    <Content Include="Content\themes\default\elements\icon.overrides" />
+    <Content Include="Content\themes\default\elements\icon.variables" />
+    <Content Include="Content\themes\default\elements\image.overrides" />
+    <Content Include="Content\themes\default\elements\image.variables" />
+    <Content Include="Content\themes\default\elements\input.overrides" />
+    <Content Include="Content\themes\default\elements\input.variables" />
+    <Content Include="Content\themes\default\elements\label.overrides" />
+    <Content Include="Content\themes\default\elements\label.variables" />
+    <Content Include="Content\themes\default\elements\list.overrides" />
+    <Content Include="Content\themes\default\elements\list.variables" />
+    <Content Include="Content\themes\default\elements\loader.overrides" />
+    <Content Include="Content\themes\default\elements\loader.variables" />
+    <Content Include="Content\themes\default\elements\rail.overrides" />
+    <Content Include="Content\themes\default\elements\rail.variables" />
+    <Content Include="Content\themes\default\elements\reveal.overrides" />
+    <Content Include="Content\themes\default\elements\reveal.variables" />
+    <Content Include="Content\themes\default\elements\segment.overrides" />
+    <Content Include="Content\themes\default\elements\segment.variables" />
+    <Content Include="Content\themes\default\elements\step.overrides" />
+    <Content Include="Content\themes\default\elements\step.variables" />
+    <Content Include="Content\themes\default\globals\reset.overrides" />
+    <Content Include="Content\themes\default\globals\reset.variables" />
+    <Content Include="Content\themes\default\globals\site.overrides" />
+    <Content Include="Content\themes\default\globals\site.variables" />
+    <Content Include="Content\themes\default\modules\accordion.overrides" />
+    <Content Include="Content\themes\default\modules\accordion.variables" />
+    <Content Include="Content\themes\default\modules\chatroom.overrides" />
+    <Content Include="Content\themes\default\modules\chatroom.variables" />
+    <Content Include="Content\themes\default\modules\checkbox.overrides" />
+    <Content Include="Content\themes\default\modules\checkbox.variables" />
+    <Content Include="Content\themes\default\modules\dimmer.overrides" />
+    <Content Include="Content\themes\default\modules\dimmer.variables" />
+    <Content Include="Content\themes\default\modules\dropdown.overrides" />
+    <Content Include="Content\themes\default\modules\dropdown.variables" />
+    <Content Include="Content\themes\default\modules\embed.overrides" />
+    <Content Include="Content\themes\default\modules\embed.variables" />
+    <Content Include="Content\themes\default\modules\modal.overrides" />
+    <Content Include="Content\themes\default\modules\modal.variables" />
+    <Content Include="Content\themes\default\modules\nag.overrides" />
+    <Content Include="Content\themes\default\modules\nag.variables" />
+    <Content Include="Content\themes\default\modules\popup.overrides" />
+    <Content Include="Content\themes\default\modules\popup.variables" />
+    <Content Include="Content\themes\default\modules\progress.overrides" />
+    <Content Include="Content\themes\default\modules\progress.variables" />
+    <Content Include="Content\themes\default\modules\rating.overrides" />
+    <Content Include="Content\themes\default\modules\rating.variables" />
+    <Content Include="Content\themes\default\modules\search.overrides" />
+    <Content Include="Content\themes\default\modules\search.variables" />
+    <Content Include="Content\themes\default\modules\shape.overrides" />
+    <Content Include="Content\themes\default\modules\shape.variables" />
+    <Content Include="Content\themes\default\modules\sidebar.overrides" />
+    <Content Include="Content\themes\default\modules\sidebar.variables" />
+    <Content Include="Content\themes\default\modules\sticky.overrides" />
+    <Content Include="Content\themes\default\modules\sticky.variables" />
+    <Content Include="Content\themes\default\modules\tab.overrides" />
+    <Content Include="Content\themes\default\modules\tab.variables" />
+    <Content Include="Content\themes\default\modules\transition.overrides" />
+    <Content Include="Content\themes\default\modules\transition.variables" />
+    <Content Include="Content\themes\default\views\ad.overrides" />
+    <Content Include="Content\themes\default\views\ad.variables" />
+    <Content Include="Content\themes\default\views\card.overrides" />
+    <Content Include="Content\themes\default\views\card.variables" />
+    <Content Include="Content\themes\default\views\comment.overrides" />
+    <Content Include="Content\themes\default\views\comment.variables" />
+    <Content Include="Content\themes\default\views\feed.overrides" />
+    <Content Include="Content\themes\default\views\feed.variables" />
+    <Content Include="Content\themes\default\views\item.overrides" />
+    <Content Include="Content\themes\default\views\item.variables" />
+    <Content Include="Content\themes\default\views\statistic.overrides" />
+    <Content Include="Content\themes\default\views\statistic.variables" />
+    <Content Include="Content\themes\duo\elements\loader.overrides" />
+    <Content Include="Content\themes\duo\elements\loader.variables" />
+    <Content Include="Content\themes\fixed-width\collections\grid.overrides" />
+    <Content Include="Content\themes\fixed-width\collections\grid.variables" />
+    <Content Include="Content\themes\fixed-width\modules\modal.overrides" />
+    <Content Include="Content\themes\fixed-width\modules\modal.variables" />
+    <Content Include="Content\themes\flat\collections\form.overrides" />
+    <Content Include="Content\themes\flat\collections\form.variables" />
+    <Content Include="Content\themes\flat\globals\site.overrides" />
+    <Content Include="Content\themes\flat\globals\site.variables" />
+    <Content Include="Content\themes\github\assets\fonts\octicons-local.ttf" />
+    <Content Include="Content\themes\github\assets\fonts\octicons.ttf" />
+    <Content Include="Content\themes\github\assets\fonts\octicons.woff" />
+    <Content Include="Content\themes\github\collections\breadcrumb.variables" />
+    <Content Include="Content\themes\github\collections\form.overrides" />
+    <Content Include="Content\themes\github\collections\form.variables" />
+    <Content Include="Content\themes\github\collections\grid.variables" />
+    <Content Include="Content\themes\github\collections\menu.overrides" />
+    <Content Include="Content\themes\github\collections\menu.variables" />
+    <Content Include="Content\themes\github\collections\message.overrides" />
+    <Content Include="Content\themes\github\collections\message.variables" />
+    <Content Include="Content\themes\github\collections\table.variables" />
+    <Content Include="Content\themes\github\elements\button.overrides" />
+    <Content Include="Content\themes\github\elements\button.variables" />
+    <Content Include="Content\themes\github\elements\header.variables" />
+    <Content Include="Content\themes\github\elements\icon.overrides" />
+    <Content Include="Content\themes\github\elements\icon.variables" />
+    <Content Include="Content\themes\github\elements\image.variables" />
+    <Content Include="Content\themes\github\elements\input.overrides" />
+    <Content Include="Content\themes\github\elements\input.variables" />
+    <Content Include="Content\themes\github\elements\label.overrides" />
+    <Content Include="Content\themes\github\elements\label.variables" />
+    <Content Include="Content\themes\github\elements\segment.overrides" />
+    <Content Include="Content\themes\github\elements\segment.variables" />
+    <Content Include="Content\themes\github\elements\step.overrides" />
+    <Content Include="Content\themes\github\elements\step.variables" />
+    <Content Include="Content\themes\github\globals\site.variables" />
+    <Content Include="Content\themes\github\modules\dropdown.overrides" />
+    <Content Include="Content\themes\github\modules\dropdown.variables" />
+    <Content Include="Content\themes\github\modules\popup.variables" />
+    <Content Include="Content\themes\gmail\collections\message.overrides" />
+    <Content Include="Content\themes\gmail\collections\message.variables" />
+    <Content Include="Content\themes\instagram\views\card.overrides" />
+    <Content Include="Content\themes\instagram\views\card.variables" />
+    <Content Include="Content\themes\material\assets\fonts\icons.eot" />
+    <Content Include="Content\themes\material\assets\fonts\icons.ttf" />
+    <Content Include="Content\themes\material\assets\fonts\icons.woff" />
+    <Content Include="Content\themes\material\assets\fonts\icons.woff2" />
+    <Content Include="Content\themes\material\collections\menu.overrides" />
+    <Content Include="Content\themes\material\collections\menu.variables" />
+    <Content Include="Content\themes\material\elements\button.overrides" />
+    <Content Include="Content\themes\material\elements\button.variables" />
+    <Content Include="Content\themes\material\elements\header.overrides" />
+    <Content Include="Content\themes\material\elements\header.variables" />
+    <Content Include="Content\themes\material\elements\icon.overrides" />
+    <Content Include="Content\themes\material\elements\icon.variables" />
+    <Content Include="Content\themes\material\globals\site.overrides" />
+    <Content Include="Content\themes\material\globals\site.variables" />
+    <Content Include="Content\themes\material\modules\dropdown.overrides" />
+    <Content Include="Content\themes\material\modules\dropdown.variables" />
+    <Content Include="Content\themes\material\modules\modal.overrides" />
+    <Content Include="Content\themes\material\modules\modal.variables" />
+    <Content Include="Content\themes\pulsar\elements\loader.overrides" />
+    <Content Include="Content\themes\pulsar\elements\loader.variables" />
+    <Content Include="Content\themes\raised\elements\button.overrides" />
+    <Content Include="Content\themes\raised\elements\button.variables" />
+    <Content Include="Content\themes\resetcss\globals\reset.overrides" />
+    <Content Include="Content\themes\resetcss\globals\reset.variables" />
+    <Content Include="Content\themes\round\elements\button.overrides" />
+    <Content Include="Content\themes\round\elements\button.variables" />
+    <Content Include="Content\themes\rtl\globals\site.overrides" />
+    <Content Include="Content\themes\rtl\globals\site.variables" />
+    <Content Include="Content\themes\striped\modules\progress.overrides" />
+    <Content Include="Content\themes\striped\modules\progress.variables" />
+    <Content Include="Content\themes\timeline\views\feed.overrides" />
+    <Content Include="Content\themes\timeline\views\feed.variables" />
+    <Content Include="Content\themes\twitter\elements\button.overrides" />
+    <Content Include="Content\themes\twitter\elements\button.variables" />
+    <Content Include="semantic\tasks\collections\README.md" />
+    <Content Include="semantic\tasks\config\admin\templates\bower.json" />
+    <Content Include="semantic\tasks\config\admin\templates\composer.json" />
+    <Content Include="semantic\tasks\config\admin\templates\package.json" />
+    <Content Include="semantic\tasks\config\admin\templates\README.md" />
+    <Content Include="semantic\tasks\README.md" />
+    <Content Include="semantic.json" />
+    <Content Include="Views\Shared\_StepBar.cshtml" />
+    <Content Include="Views\References\Create.cshtml" />
+    <Content Include="Views\References\Delete.cshtml" />
+    <Content Include="Views\References\Details.cshtml" />
+    <Content Include="Views\References\Edit.cshtml" />
+    <Content Include="Views\References\Index.cshtml" />
+    <Content Include="Views\Technologies\Create.cshtml" />
+    <Content Include="Views\Technologies\Delete.cshtml" />
+    <Content Include="Views\Technologies\Details.cshtml" />
+    <Content Include="Views\Technologies\Edit.cshtml" />
+    <Content Include="Views\Technologies\Index.cshtml" />
+    <Content Include="Views\JobApps\UploadResume.cshtml" />
+    <Content Include="semantic\uncompressed\fonts\icons.woff" />
+    <Content Include="semantic\uncompressed\fonts\icons.ttf" />
+    <Content Include="semantic\uncompressed\fonts\icons.eot" />
+    <Content Include="semantic\packaged\fonts\icons.woff" />
+    <Content Include="semantic\packaged\fonts\icons.ttf" />
+    <Content Include="semantic\packaged\fonts\icons.eot" />
+    <Content Include="semantic\minified\fonts\icons.woff" />
+    <Content Include="semantic\minified\fonts\icons.ttf" />
+    <Content Include="semantic\minified\fonts\icons.eot" />
+    <Content Include="semantic\less\views\statistic.less" />
+    <Content Include="semantic\less\views\sitemap.less" />
+    <Content Include="semantic\less\views\list.less" />
+    <Content Include="semantic\less\views\item.less" />
+    <Content Include="semantic\less\views\feed.less" />
+    <Content Include="semantic\less\views\comment.less" />
+    <Content Include="semantic\less\modules\video.less" />
+    <Content Include="semantic\less\modules\transition.less" />
+    <Content Include="semantic\less\modules\tab.less" />
+    <Content Include="semantic\less\modules\sidebar.less" />
+    <Content Include="semantic\less\modules\shape.less" />
+    <Content Include="semantic\less\modules\search.less" />
+    <Content Include="semantic\less\modules\reveal.less" />
+    <Content Include="semantic\less\modules\rating.less" />
+    <Content Include="semantic\less\modules\popup.less" />
+    <Content Include="semantic\less\modules\nag.less" />
+    <Content Include="semantic\less\modules\modal.less" />
+    <Content Include="semantic\less\modules\extra.transition.less" />
+    <Content Include="semantic\less\modules\dropdown.less" />
+    <Content Include="semantic\less\modules\dimmer.less" />
+    <Content Include="semantic\less\modules\checkbox.less" />
+    <Content Include="semantic\less\modules\chatroom.less" />
+    <Content Include="semantic\less\modules\carousel.less" />
+    <Content Include="semantic\less\modules\accordion.less" />
+    <Content Include="semantic\less\fonts\icons.woff" />
+    <Content Include="semantic\less\fonts\icons.ttf" />
+    <Content Include="semantic\less\fonts\icons.eot" />
+    <Content Include="semantic\less\elements\step.less" />
+    <Content Include="semantic\less\elements\segment.less" />
+    <Content Include="semantic\less\elements\progress.less" />
+    <Content Include="semantic\less\elements\loader.less" />
+    <Content Include="semantic\less\elements\label.less" />
+    <Content Include="semantic\less\elements\input.less" />
+    <Content Include="semantic\less\elements\image.less" />
+    <Content Include="semantic\less\elements\icon.less" />
+    <Content Include="semantic\less\elements\header.less" />
+    <Content Include="semantic\less\elements\divider.less" />
+    <Content Include="semantic\less\elements\button.less" />
+    <Content Include="semantic\less\collections\table.less" />
+    <Content Include="semantic\less\collections\message.less" />
+    <Content Include="semantic\less\collections\menu.less" />
+    <Content Include="semantic\less\collections\grid.less" />
+    <Content Include="semantic\less\collections\form.less" />
+    <Content Include="semantic\less\collections\breadcrumb.less" />
+    <Content Include="Views\JobApps\Confirmation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803131922207_new.resx">
+      <DependentUpon>201803131922207_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803132024364_Images.resx">
+      <DependentUpon>201803132024364_Images.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49825</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49825/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

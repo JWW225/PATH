@@ -1,0 +1,309 @@
+﻿@model IEnumerable<ProvalusApplicantTrackingHub.Models.JobApp>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Submitted Applications</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<table @*class="ui striped celled sortable table-striped"*@ id="myTable" class="ui celled table" style="width:100%">
+    <thead>
+        <tr>
+            <th class="">
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th class="">
+                @*@Html.DisplayNameFor(model => model.FName)*@
+                First<br />Name
+            </th>
+            @*<th class="">
+                    Html.DisplayNameFor(model => model.MName)
+                    Middle<br />Name
+                </th>*@
+            <th class="">
+                @*@Html.DisplayNameFor(model => model.LName)*@
+                Last<br />Name
+            </th>
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.SSN)
+                </th>*@
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.DOB)
+                </th>*@
+            <th class="">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th class="">
+                @Html.DisplayNameFor(model => model.PrimaryPhone)
+            </th>
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.PPhoneIsMobile)
+                </th>*@
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.SecondaryPhone)
+                </th>*@
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.SPhoneIsMobile)
+                </th>*@
+            <th class="">
+                @*@Html.DisplayNameFor(model => model.CanRelocate)*@
+                Relocate?
+            </th>
+            <th class="">
+                @*@Html.DisplayNameFor(model => model.DateAvailable)*@
+                Available<br />to Start
+            </th>
+            @*<th class="">*@
+            @*@Html.DisplayNameFor(model => model.DateEntered)*@
+            @*Application<br />Entered
+                </th>*@
+            <th class="">
+                @*@Html.DisplayNameFor(model => model.AuthorizedToWork)*@
+                Auth to<br />Work?
+            </th>
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.DrugScreen)
+                </th>*@
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.Military)
+                </th>*@
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.Branch)
+                </th>*@
+            <th class="">
+                @*@Html.DisplayNameFor(model => model.Conviction)*@
+                Convicted?
+            </th>
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.Explanation)
+                </th>*@
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.Signature)
+                </th>*@
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.About)
+                </th>*@
+            @*<th class="">
+                    @Html.DisplayNameFor(model => model.Resume)
+                </th>*@
+            <th class="">
+                @*@Html.DisplayNameFor(model => model.CPABScore)*@
+                CPAB
+            </th>
+            <th class="">
+                @*@Html.DisplayNameFor(model => model.PTScore)*@
+                Wonderlic
+            </th>
+            <th class="">Actions</th>
+        </tr>
+    </thead>
+
+    <script>$(document).ready(function () {
+            $('#myTable').DataTable({
+                "autowidth": true});
+        });
+    </script>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="#" id="Position" data-type="select" data-url="/post" data-target="Position" data-ajax="true" data-value="@item.Position" class="position editable editable-click save" title="Position">@item.Position</a>
+                    @*@Html.DisplayFor(modelItem => item.Position)*@
+                </td>
+                <td>
+
+                    <a href="#" id="FName" data-type="text" data-url="/post" data-title="Fname" data-value="@item.FName" class="fname editable editable-click editable-input save" title="Fname">@item.FName</a>
+                    @*@Html.DisplayFor(modelItem => item.FName)*@
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.MName)
+                    </td>*@
+                <td>
+
+                    <a href="#" id="LName" data-id="@item.Id" data-type="text" data-url="/post" data-title="LName" data-value="@item.LName" class="lname editable editable-click editable-input save" title="Lname">@item.LName</a>
+                    @*@Html.DisplayFor(modelItem => item.LName)*@
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.SSN)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.DOB)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrimaryPhone)
+                    @if (item.PPhoneIsMobile)
+                    {
+                        <i class="mobile icon"></i>
+                    }
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.PPhoneIsMobile)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.SecondaryPhone)
+                        @if(item.SPhoneIsMobile) {
+                            <i class="mobile icon"></i>
+                        }
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.SPhoneIsMobile)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.CanRelocate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAvailable)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.DateEntered)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorizedToWork)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.DrugScreen)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Military)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Branch)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Conviction)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Explanation)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Signature)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.About)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Resume)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPABScore)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PTScore)
+                </td>
+              
+                <td>
+                    <a href="@Url.Action("Edit", "JobApps", new { id = item.Id })"><i class="large edit icon"></i></a>
+
+                    <a href="@Url.Action("Details", "JobApps", new { id = item.Id })"><i class="large folder open outline icon"></i></a>
+
+                    <a href="@Url.Action("Delete", "JobApps", new { id = item.Id })"><i class="large delete icon"></i></a>
+
+                    <a href="https://www.dropbox.com/home/New%20Resumes?preview=@item.Resume"><i class="large file icon"></i></a>
+
+
+
+                            <div id="savedata" type="hidden" data-url="@Url.Action("SaveXChanges", "JobApps")" data-id="@item.Id"></div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+        <script type="text/javascript">
+
+
+
+            $('table').tablesort();
+
+            //$('.PositionUpdate').editable({
+
+            //});
+
+            $(".fname").click(function () {
+                $(this).editable({
+                    //selector: 'a',
+                    url: '/post',
+                    //pk: 1,
+                    //title: 'Fname'
+
+                });
+            });
+
+            $(".fname").on('save', function (e, params) {
+                SaveData($(this).attr('data-id'), "fname", params.newValue);
+            });
+
+            $(".lname").click(function () {
+                $(this).editable({
+                    //type: 'text',
+                    url: '/post',
+                    //pk: 1,
+                    //title: 'Lname'
+                });
+            });
+
+            $(".lname").on('save', function (e, params) {
+                SaveData($(this).attr('data-id'), "lname", params.newValue);
+            });
+
+            $(".position").click(function () {
+                $(this).editable({
+                    //selector: 'a',
+                    url: '/post',
+                    //pk: 1,
+                    //title: 'Position',
+
+                    source: [
+                        { value: 0, text: 'Development' },
+                        { value: 1, text: 'Net Engineer' },
+                        { value: 2, text: 'Sys Engineer' },
+                        { value: 3, text: 'Net Admin' },
+                        { value: 4, text: 'Sys Admin' },
+                        { value: 5, text: 'Tech Supp' },
+                        { value: 6, text: 'SW Testing' },
+                        { value: 7, text: 'HelpDesk' },
+                        { value: 8, text: 'Administrative' },
+                        { value: 9, text: 'Sales' },
+                        { value: 10, text: 'Operations' },
+                        { value: 11, text: 'Recruiting' }
+                    ]
+                });
+            });
+
+            $(".position").on('save', function (e, params) {
+                SaveData($(this).attr('data-id'), "position", params.newValue);
+            });
+
+            function SaveData(jaid, type, data) {
+                var dataUrl = $("#savedata").attr('data-url');
+                var jaid = $("#savedata").attr('data-id');
+
+                jQuery.ajax({
+                    type: "POST",
+                    url: dataUrl,
+                    data: {
+                        "jaid": jaid,
+                        "type": type,
+                        "data": data
+                    },
+                    success: function (data) {
+                        //alert("words n stuff");
+                    }
+                });
+            };
+
+
+
+        </script>

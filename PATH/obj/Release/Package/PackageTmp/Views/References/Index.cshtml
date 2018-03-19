@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ProvalusApplicantTrackingHub.Models.Reference>
+
+@{
+    ViewBag.Title = "References";
+}
+<div>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.Partial("_StepBar")
+    }
+
+</div>
+
+<h2>Professional References</h2>
+<h3>Please enter all of your professional references below.</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <p><a href="@Url.Action("VerifyAndSign", "JobApps", new { jaid = TempData["jaid"] })" class="btn btn-danger btn-group-sm" style="float:right">Next Section &raquo;</a></p>
+</div>
+    </div>
+

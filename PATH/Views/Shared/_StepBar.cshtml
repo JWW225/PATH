@@ -1,0 +1,74 @@
+﻿@using Microsoft.AspNet.Identity;
+@using ProvalusApplicantTrackingHub.Repository;
+@*@model ProvalusApplicantTrackingHub.Models.JobApp*@
+
+@*{ 
+        ViewBag.JAID = PathRepository.Repo.GetJobAppByApplicant(User.Identity.GetUserId()) != null 
+        ? PathRepository.Repo.GetJobAppByApplicant(User.Identity.GetUserId()).Id : 0;
+}*@
+
+
+    <div>
+        <div class="ui seven fluid centered tiny steps" >
+            <div class="step" @*@Url.Action("UploadResume", "JobApps")*@>
+                <i class="ui file text icon"></i>
+                <div class="content">
+                    <div class="title">Resume</div>
+                    @*<div class="description">Enter your Resume</div>*@
+                </div>
+            </div>
+
+            <div class="step" @*@Url.Action("Create", "JobApps")*@>
+                <i class="id card icon"></i>
+                <div class="content">
+                    <div class="title">Personal Info</div>
+                    @*<div class="description">Enter Your Personal Information</div>*@
+                </div>
+            </div>
+
+            <div class="step" @*@Url.Action("Index", "Employments", new { jaid = TempData["jaid"] })*@>
+                <i class="building icon"></i>
+                <div class="content">
+                    <div class="title">Previous Employment</div>
+                    @*<div class="description">Enter your previous employement</div>*@
+                </div>
+            </div>
+
+            <div class="step" @*@Url.Action("Index", "Educations", new { jaid = TempData["jaid"] })*@>
+                <i class="student icon"></i>
+                <div class="content">
+                    <div class="title">Education</div>
+                    @*<div class="description">Enter your education</div>*@
+                </div>
+            </div>
+
+            <div class="step" @*@Url.Action("Index", "Skills", new { jaid = TempData["jaid"] })*@>
+                <i class="settings icon"></i>
+                <div class="content">
+                    <div class="title">Skills</div>
+                    @*<div class="description">Tell us about your skills</div>*@
+                </div>
+            </div>
+
+            <div class="step" @*@Url.Action("Index", "References", new { jaid = TempData["jaid"] })*@>
+                <i class="handshake icon"></i>
+                <div class="content">
+                    <div class="title">References</div>
+                    @*<div class="description">Enter your education</div>*@
+                </div>
+            </div>
+
+       
+
+            <div class="step" @*@Url.Action("VerifyAndSign", "JobApps", new { jaid = TempData["jaid"] })*@>
+                <i class="edit icon"></i>
+                <div class="content">
+                    <div class="title">Verify and Sign</div>
+                    @*<div class="description">Verify order details</div>*@
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
